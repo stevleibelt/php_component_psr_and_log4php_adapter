@@ -6,6 +6,8 @@
 
 namespace Net\Bazzline\Component\PsrAndLog4PhpAdapter;
 
+use LoggerLevel;
+
 /**
  * Class Log4PhpLoggerInterface
  * Taken from: https://git-wip-us.apache.org/repos/asf?p=logging-log4php.git;a=blob_plain;f=src/main/php/Logger.php;hb=HEAD
@@ -60,4 +62,14 @@ interface Log4PhpLoggerInterface
 	 *   in the logging event.
 	 */
 	public function fatal($message, $throwable = null);
+
+	/**
+	 * Log a message using the provided logging level.
+	 *
+	 * @param LoggerLevel $level The logging level.
+	 * @param mixed $message Message to log.
+ 	 * @param \Exception $throwable Optional throwable information to include
+	 *   in the logging event.
+	 */
+	public function log(LoggerLevel $level, $message, $throwable = null);
 }
