@@ -6,6 +6,7 @@
 
 namespace Net\Bazzline\Component\PsrAndLog4PhpAdapter;
 
+use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
 /**
@@ -15,7 +16,7 @@ use Psr\Log\LogLevel;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-09-12
  */
-class PsrToLog4PhpAdapter
+class PsrToLog4PhpAdapter implements LoggerInterface
 {
     /**
      * @var Log4PhpLoggerInterface
@@ -31,7 +32,7 @@ class PsrToLog4PhpAdapter
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-09-12
      */
-    public function setLogger(Log4PhpLoggerInterface $log4PhpLogger)
+    protected function setLog4PhpLogger(Log4PhpLoggerInterface $log4PhpLogger)
     {
         $this->log4PhpLogger = $log4PhpLogger;
     }
