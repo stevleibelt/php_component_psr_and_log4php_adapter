@@ -25,8 +25,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      */
     protected $log4PhpLogger;
 
-
-
     /**
      * @param Log4PhpLoggerInterface $log4PhpLogger
      * @author stev leibelt <artodeto@arcor.de>
@@ -36,8 +34,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
     {
         $this->log4PhpLogger = $log4PhpLogger;
     }
-
-
 
     /**
      * System is unusable.
@@ -51,8 +47,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
     {
         $this->log(LogLevel::EMERGENCY, $message, $context);
     }
-
-
 
     /**
      * Action must be taken immediately.
@@ -69,8 +63,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
         $this->log(LogLevel::ALERT, $message, $context);
     }
 
-
-
     /**
      * Critical conditions.
      * Example: Application component unavailable, unexpected exception.
@@ -85,8 +77,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
         $this->log(LogLevel::CRITICAL, $message, $context);
     }
 
-
-
     /**
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
@@ -100,8 +90,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
     {
         $this->log(LogLevel::ERROR, $message, $context);
     }
-
-
 
     /**
      * Exceptional occurrences that are not errors.
@@ -118,8 +106,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
         $this->log(LogLevel::WARNING, $message, $context);
     }
 
-
-
     /**
      * Normal but significant events.
      *
@@ -132,8 +118,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
     {
         $this->log(LogLevel::NOTICE, $message, $context);
     }
-
-
 
     /**
      * Interesting events.
@@ -149,8 +133,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
         $this->log(LogLevel::INFO, $message, $context);
     }
 
-
-
     /**
      * Detailed debug information.
      *
@@ -163,8 +145,6 @@ class PsrToLog4PhpAdapter implements LoggerInterface
     {
         $this->log(LogLevel::DEBUG, $message, $context);
     }
-
-
 
     /**
      * Logs with an arbitrary level.
