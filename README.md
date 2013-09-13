@@ -33,6 +33,7 @@ The full licence text is shipped [within](https://github.com/stevleibelt/php_com
 # Version History
 
 * [next](https://github.com/stevleibelt/php_component_psr_and_log4php_adapter)
+* [1.0.0](https://github.com/stevleibelt/php_component_psr_and_log4php_adapter/tree/1.0.0)
     * Log4Php Logger Interface
     * Log4Php to Psr Logger Bridge
     * Psr Logger to Log4PhP Bridge
