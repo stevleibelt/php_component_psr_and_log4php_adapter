@@ -1,11 +1,12 @@
 <?php
 /**
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-09-12
  */
 
 namespace Net\Bazzline\Component\PsrAndLog4PhpAdapter;
 
+use Logger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
@@ -13,26 +14,20 @@ use Psr\Log\LogLevel;
  * Class PsrToLog4PhpAdapter
  *
  * @package Net\Bazzline\Component\ProxyLogger
- * @author stev leibelt <artodeto@arcor.de>
- * @since 2013-09-12
  */
 class PsrToLog4PhpAdapter implements LoggerInterface
 {
-    /**
-     * @var Log4PhpLoggerInterface
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-09-12
-     */
-    protected $log4PhpLogger;
+    /** @var Logger */
+    private $log4PhpLogger;
 
     /**
-     * @param Log4PhpLoggerInterface $log4PhpLogger
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-09-12
+     * PsrToLog4PhpAdapter constructor.
+     *
+     * @param Logger $log4PhpLogger
      */
-    protected function setLog4PhpLogger(Log4PhpLoggerInterface $log4PhpLogger)
+    public function __construct(Logger $log4PhpLogger)
     {
-        $this->log4PhpLogger = $log4PhpLogger;
+        $this->log4PhpLogger    = $log4PhpLogger;
     }
 
     /**
@@ -41,7 +36,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function emergency($message, array $context = array())
     {
@@ -56,7 +51,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function alert($message, array $context = array())
     {
@@ -70,7 +65,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function critical($message, array $context = array())
     {
@@ -84,7 +79,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function error($message, array $context = array())
     {
@@ -99,7 +94,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function warning($message, array $context = array())
     {
@@ -112,7 +107,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function notice($message, array $context = array())
     {
@@ -126,7 +121,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function info($message, array $context = array())
     {
@@ -139,7 +134,7 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function debug($message, array $context = array())
     {
@@ -153,27 +148,28 @@ class PsrToLog4PhpAdapter implements LoggerInterface
      * @param string $message
      * @param array $context
      *
-     * @return null
+     * @return void
      */
     public function log($level, $message, array $context = array())
     {
         switch ($level) {
             case LogLevel::DEBUG:
-                $this->log4PhpLogger->debug($message, $context);
+            case LogLevel::NOTICE:
+                $this->log4PhpLogger->debug($message);
                 break;
             case LogLevel::INFO:
-                $this->log4PhpLogger->info($message, $context);
+                $this->log4PhpLogger->info($message);
                 break;
             case LogLevel::WARNING:
-                $this->log4PhpLogger->warn($message, $context);
+                $this->log4PhpLogger->warn($message);
                 break;
             case LogLevel::ERROR:
-                $this->log4PhpLogger->error($message, $context);
+                $this->log4PhpLogger->error($message);
                 break;
             case LogLevel::CRITICAL:
             case LogLevel::ALERT:
             case LogLevel::EMERGENCY:
-                $this->log4PhpLogger->fatal($message, $context);
+                $this->log4PhpLogger->fatal($message);
                 break;
         }
     }
