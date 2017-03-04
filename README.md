@@ -28,7 +28,7 @@ Take a look on [openhub.net](https://www.openhub.net/p/component_psr_and_log4php
 ## Use a psr-logger in a Log4Php
 
 ```php
-$adapter = new \Net\Bazzline\Component\PsrAndLog4PhpAdapter\Log4PhpToPsrLoggerAdapter('your name');
+$adapter = new \Net\Bazzline\Component\PsrAndLog4PhpAdapter\Log4PhpToPsrAdapter('your name');
 $adapter->injectPsrLogger($psrLoggerInstance);
 $adapter->debug('my debug log');
 ```
@@ -36,7 +36,7 @@ $adapter->debug('my debug log');
 ## Use a Log4Php in a psr-logger
 
 ```php
-$adapter = new \Net\Bazzline\Component\PsrAndLog4PhpAdapter\PsrToLog4PhpLoggerAdapter($log4PhpInstance);
+$adapter = new \Net\Bazzline\Component\PsrAndLog4PhpAdapter\PsrToLog4PhpAdapter($log4PhpInstance);
 $adapter->debug('my debug log');
 ```
 
@@ -58,7 +58,7 @@ require: "net_bazzline/component_psr_and_log4php_adapter": "dev-master"
 
 # Notes
 
-* throwable are currently ignored in Log4PhpToPsrLoggerAdapter::log()
+* throwable are currently ignored in Log4PhpToPsrAdapter::log()
 * context is currently ignored in PsrToLog4PhpAdapter::log()
 
 # Licence
@@ -72,7 +72,8 @@ The full licence text is shipped [within](https://github.com/stevleibelt/php_com
     * @todo
         * add versioneye dependecy status
         * add link to openhub
-        * implement conversion of throwable into something in Log4PhpToPsrLoggerAdapter::log()
+        * fixed typos in the readme
+        * implement conversion of throwable into something in Log4PhpToPsrAdapter::log()
         * implement conversion of context into something in PsrToLog4PhpAdapter
     * added travis build status
     * added scrutinizer build status
