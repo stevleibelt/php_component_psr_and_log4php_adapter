@@ -4,7 +4,7 @@
     "description": "php component psr logger log4php bridge Log4Php Logger Interface",
     "keywords": ["php", "net_bazzline", "adapter", "component", "logger", "psr-3", "log4php", "log", "logging", "Log4Php Logger Interface"],
     "homepage": "https://github.com/stevleibelt/php_component_psr_and_log4php_adapter",
-    "license": "LGPLv3",
+    "license": "LGPL-3.0-or-later",
     "authors": [
 	    {
             "name": "Stev Leibelt",
